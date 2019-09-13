@@ -1,0 +1,136 @@
+<div class="breadcum">
+  <div class="header-img">
+    <img src="../../../assets/images/career-header.jpg" class="img-fluid" alt="" title="" />
+  </div>
+  <div class="page-title">
+    <div class="container">
+      <h1>Career</h1>
+    </div>
+  </div>
+</div>
+<loader *ngIf="status"></loader>
+<div class="main-inner career-inner" *ngIf="!status">
+
+  <div class="recent-opening">
+    <div class="container mt-4 mb-5 ">
+      <h1 class="section-title-inner">Current Openings</h1>
+
+      <div class="row">
+        <div class="col-md-3 col-lg-4 mb-3">
+          <ul class="nav nav-pills flex-column recent-opening-left" id="myTab" role="tablist">
+            <li class="nav-item" *ngFor="let job of getJobs ; let isFirst = first">
+              <a class="nav-link" [class.active]="isFirst" id="home-tab" data-toggle="tab" href="#{{job.title}}"
+                role="tab" aria-controls="home" aria-selected="true">{{job.title | uppercase}}</a>
+            </li>
+
+
+          </ul>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-9 col-lg-8">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="{{job.title}}" role="tabpanel" aria-labelledby="home-tab"
+              *ngFor="let job of getJobs ; let isFirst = first ; let i = index" [class.active]="isFirst">
+              <h4>Opening {{i+1}}</h4>
+              <div class="link-blog">
+                <p><b>Experience:</b>{{job.experience}}</p>
+                <p><b>Posting Date:</b> {{job.posting_date}}</p>
+              </div>
+              <p [innerHtml]="job.job_details"></p>
+              <div class="opening-apply"><a (click)="scroll(formd)">Apply Now</a></div>
+            </div>
+
+
+          </div>
+        </div>
+        <!-- /.col-md-8 -->
+      </div>
+
+    </div>
+  </div>
+
+  <div class="apply-now-section" id="formd" #formd *ngIf="!message">
+    <div class="container">
+      <div class="row">
+
+        <div class="offset-md-3 col-md-6">
+          <div class="adress-contact-right">
+            <div class="apply-header">
+              <h1>Apply Now</h1>
+              <p>Please Fill Out The Form</p>
+            </div>
+            <form #f="ngForm" novalidate autocomplete="off">
+
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="text" name="name" #name="ngModel" required [(ngModel)]="candname" placeholder="Name*"
+                    class="form-control" />
+                </div>
+                <div class="alert alert-warning" *ngIf="name.touched && name.invalid">
+                  <p *ngIf="name.errors.required">Name cannot be blank</p>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="email" name="email" #email="ngModel" [(ngModel)]="candemail" required
+                    pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" placeholder="Email*"
+                    class="form-control" />
+                </div>
+                <div class="alert alert-warning" *ngIf="email.touched && email.invalid">
+                  <p *ngIf="email.errors.required">Email cannot be blank</p>
+                  <p *ngIf="email.errors.pattern">Email is not valid</p>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="number" name="phoneno" #phoneno="ngModel" required [(ngModel)]="candphone"
+                    placeholder="Phone No*" class="form-control" />
+                </div>
+                <div class="alert alert-warning" *ngIf="phoneno.touched && phoneno.invalid">
+                  <p *ngIf="phoneno.errors.required">Phone no cannot be blank</p>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <select class="form-control" required name="intrest" #intrest="ngModel" [(ngModel)]="candintrest">
+                    <option hidden [ngValue]="undefined" selected>Intrested For</option>
+                    <option *ngFor="let job of getJobs " [value]="job.title">{{ job.title | titlecase }}</option>
+                  </select>
+                  <div class="alert alert-warning" *ngIf="intrest.touched && intrest.invalid">
+                    <p *ngIf="intrest.errors.required">Please choose a option</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <input type="file" name="resume" #resume="ngModel" [(ngModel)]="candresume"
+                    accept=".xlsx,.xls,.rtf,.doc, .docx,.ppt, .pptx,.txt,.pdf" (change)="uploadResume($event)" required
+                    class="form-control" />
+                </div>
+                <div class="alert alert-warning" *ngIf="resume.touched && resume.invalid">
+                  <p *ngIf="resume.errors.required">Please select your resume</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="send-form">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <input type="submit" name="" [disabled]="f.invalid" value="Apply" (click)="addCandidate()"
+                        class="form-control btn btn-submit" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container" *ngIf="message">
+  <div class="alert alert-primary" >
+<h3>Thanx For your effort. We will get back to shortly.</h3>
+  </div>
+</div>
+</div>

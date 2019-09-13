@@ -1,0 +1,47 @@
+<div class="breadcum">
+    <div class="header-img">
+      <img src="../../../assets/images/career-header.jpg" class="img-fluid" alt="" title="" />
+    </div>
+    <div class="page-title">
+      <div class="container">
+        <h1>All Products</h1>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="main-inner all-product">
+    <div class="all-product-content">
+      <div class="container-fluid">
+        <h2>{{catgeory | titlecase}}</h2>
+  
+        <loader class="mt-3" *ngIf="loading"></loader>
+        <div class="row" *ngIf="!loading && products.length > 0">
+  
+          <div class="col-md-3 col-sm-6 mb-3" *ngFor="let product of products ">
+            <div class="box5">
+              <img [src]="product.imagePath[0]" alt="" class="img-fluid">
+              <ul class="icon">
+                <li><a (click)="gotopro(product)">View Detail<i class="fa fa-eye"></i></a></li>
+              </ul>
+              <div class="box-content">
+                <h3 class="title">{{product.category | titlecase}}</h3>
+              </div>
+              <div class="prd-short-desc" style="padding: 1em;">
+                <h3>{{product.productname | titlecase}}</h3>
+                <p *ngIf="product.size != 'null'">Sizes: {{product.size | titlecase}}</p>
+                <p *ngIf="product.colors != 'null'">Colors: {{product.colors | titlecase}}</p>
+                <p>{{product.shortdescription | titlecase}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row " *ngIf="products.length == 0">
+          <h2 style="text-align: center!important; width: 100%;">
+          Sorry, Currentlly we dont have any products for this category
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  

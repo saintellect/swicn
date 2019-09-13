@@ -1,0 +1,112 @@
+<div class="breadcum">
+  <div class="header-img">
+    <img src="../../../assets/images/blog-header.jpg" class="img-fluid" alt="" title="" />
+  </div>
+  <div class="page-title">
+    <div class="container"><h1> All Blogs</h1></div>
+  </div>
+</div>
+
+
+<div class="main-inner blog-detail">
+
+  <div class="container">
+    <div class="blog-single-img">
+      <img [src]="image" alt="" title="{{name}}" class="img-fluid" />
+    </div>
+    <div class="blog-single-desc">
+      <h4>{{name | titlecase}}</h4>
+      <div class="link-blog">
+          <p><b>Posted By:</b> {{postedby |titlecase}}</p>
+          <p><b>Date:</b> {{date}}</p>
+          <b>Share: &nbsp;</b>
+          <!-- <ul class="prd-info-right s-share">
+            <li><a ceiboShare [facebook]="{u: repoUrl}" href="#"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a [twitter]="{url:repoUrl, text:'Checkout this new blog', hashtags:'swicn,blogs'}" href="#"><i class="fab fa-twitter"></i></a></li>
+           
+          </ul> -->
+        
+          <a ceiboShare [facebook]="{u: repoUrl}" class="share fab fa-facebook-f"></a>
+          <a ceiboShare  [twitter]="{url:repoUrl, text:'Checkout this new blog', hashtags:'swicn,blogs'}" class=" share fab fa-twitter"></a>
+         
+      </div>
+      <p [innerHtml]="details"></p>
+      
+    </div>
+  </div>
+  <div class="blog-comment">
+    <div class="blog-comment-show">
+      <div class="container">
+        <div class="row" *ngFor="let cmnt of comments" >
+          <div class="offset-2 col-md-8" *ngIf="cmnt.blogid == id && cmnt.status">
+            <div class="coment-title"><p>Comments</p></div>
+            <div class="blog-comment-shoe-inner">
+              <div class="row">
+              <div class="col-md-2">
+                <div class="blog-comment-show-left"><i class="fas fa-user"></i></div>
+              </div>
+              <div class="col-md-10">
+                <div class="blog-comment-show-right">
+                  <h5>{{cmnt.name}}</h5>
+                  <p class="auth-date">{{cmnt.date | date:'short'}}</p>
+                  <p>{{cmnt.message}}.</p>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="statusload">
+      <div class="container">
+        <div class="alert alert-warning">
+          <p>Hi.. Your comment is on hold for review. It will be posted shortly.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container" *ngIf="!statusload">
+      <div class="row">
+        <div class="offset-2 col-md-8">
+          <div class="adress-contact-right">
+            <h1 class="section-title-inner">Leave a Comment</h1>	
+            <form #f="ngForm" novalidate autocomplete="off"> 
+              
+                <div class="form-group">
+                  <textarea class="form-control" required name="message" #message="ngModel" [(ngModel)]="umsg" placeholder="Messege" ></textarea>
+                </div>
+                <div class="alert alert-danger" *ngIf="message.touched && message.invalid">
+                  <p *ngIf="message.errors.required">Message cannot be blank.</p>
+                </div>
+                <div class="form-group">
+                <input type="text" name="name" #name="ngModel" [(ngModel)]="uname"  required  placeholder="Name*" class="form-control" />
+                </div>
+                <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                  <p *ngIf="name.errors.required">Name cannot be blank.</p>
+                </div>
+                <div class="form-group">
+                <input type="number" name="contactno" #contactno="ngModel" [(ngModel)]="ucontact" required placeholder="Phone No*" class="form-control" />
+                </div>
+                <div class="alert alert-danger" *ngIf="contactno.touched && contactno.invalid">
+                  <p *ngIf="contactno.errors.required">Contact No cannot be blank.</p>
+                </div>
+                <div class="form-group">
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="uemail" placeholder="Email*" class="form-control" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+                </div>
+                <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                  <p *ngIf="email.errors.required">Email cannot be blank.</p>
+                  <P *ngIf="email.errors.pattern">Email is not valid.</P>
+                </div>
+            <div class="send-form">									
+              <div class="form-group">
+                <input type="submit" name="" [disabled]="f.invalid" (click)="addcomment()" value="Post Comment" class="form-control btn btn-submit" />
+              </div>
+            </div>
+              
+            </form>					
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

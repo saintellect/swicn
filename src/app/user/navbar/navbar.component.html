@@ -1,0 +1,252 @@
+
+<div class="header">
+	<div class="header-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-9">
+					<div class="header-top-right">
+						<div class="row">
+							<div class="col-md-3 col-6">
+								<a href="callto:+(86) 769 2728 1879"><i class="fas fa-phone-alt"></i>+(86) 769 2728 1879</a>
+							</div>
+							<div class="col-md-3 col-6">
+								<a href="mailto:swi@swi-cn.com"><i class="fas fa-envelope"></i>swi@swi-cn.com</a>
+							</div>
+							<div class="col-md-3 col-6">
+								<a href="#"><i class="fab fa-skype"></i>vivienne_yang</a>
+							</div>
+							<div class="col-md-3 col-6">
+								<div class="search-lang">
+									<div class="container">
+										<div class="row">
+									<div class="col-md-3 col-3">
+										 <div class="searching">
+							             
+							                    <a href="javascript:void(0)" class="search-open"><i class="fas fa-search"></i></a>
+							          
+							                <div class="search-inline">
+							                    <form #f="ngForm" autocomplete="off"  novalidate>
+							                        <input type="text" class="form-control" required name="search" #search="ngModel" [(ngModel)]="productsearch" placeholder="Enter product name">
+												
+													<button type="submit"  (click)="goto()"><i class="fas fa-search"></i></button>
+							                        <a href="javascript:void(0)"  class="search-close"><i class="fa fa-times"></i>
+							                        </a>
+							                    </form>
+							                </div>
+							            </div>
+										<!-- <a href="#"></a> -->
+									</div>
+									<div class="col-md-9 col-9">
+										<div class="trans">
+												<div id="google_translate_element"></div>
+										</div>
+											
+									</div>
+								</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-xs-6 col-3">
+					<div class="logo">
+						<a routerLink="/"><img src="../../../assets/images/logo.png" alt="Logo SWI" title="logo SWI"></a>
+					</div>
+				</div>
+				<div class="col-md-9 col-xs-6 col-9">
+					<div class="main-menu">
+						<nav class="navbar navbar-expand-sm   navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">            	
+              <a class="nav-link" routerLink="/">
+              	<div class="menu-link">
+              		<div class="icon-menu"><i class="fas fa-home"></i></div>
+              		<div class="link-text">Home</div>
+              	</div>
+              </a>
+            </li>
+             <li class="nav-item">
+            <a class="nav-link" routerLink="/aboutus">
+            	<div class="menu-link">
+              		<div class="icon-menu"><i class="fas fa-info"></i></div>
+              		<div class="link-text">About swi</div>
+              	</div>
+            </a>
+          </li>
+            
+           <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            	<div class="menu-link">
+              		<div class="icon-menu"><i class="fas fa-box-open"></i></div>
+              		<div class="link-text">Products</div>
+              	</div>
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" routerLink="/allproducts">All Products</a>  
+              <a class="dropdown-item" style="cursor: pointer;" *ngFor="let cat of categories" (click)="gotoPage(cat)">{{cat.categoryname | titlecase}}</a>              
+            </div>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" routerLink="/blogs">
+            	<div class="menu-link">
+              		<div class="icon-menu"><i class="far fa-edit"></i></div>
+              		<div class="link-text">Blog</div>
+              	</div>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" routerLink="/career">
+            	<div class="menu-link">
+              		<div class="icon-menu"><i class="fas fa-briefcase"></i></div>
+              		<div class="link-text">Career</div>
+              	</div>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" routerLink="/contact-us">
+            	<div class="menu-link">
+              		<div class="icon-menu"><i class="fas fa-phone-alt"></i></div>
+              		<div class="link-text">Contact</div>
+              	</div>
+            </a>
+          </li>
+
+		</ul>
+		</div>
+		</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<router-outlet>
+
+</router-outlet>
+
+<footer>
+	<div class="site-footer">
+		<div class="site-footer-top">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="footer-box addres-footer">
+						<h3>Reach Us</h3>
+						<div class="icon-adrs icon-adrs01"><i class="fas fa-map-marker-alt"></i></div>
+						<div class="desc-adrs">
+							<p>#1502, Building a4, R&D center, 
+								Songshan lake intelligent valley, 
+								Liaobu, Dongguan city, Guangdong 
+								province, 523425, China</p>
+						</div>
+						<div class="icon-adrs"><i class="fas fa-phone-alt"></i></div>
+						<div class="desc-adrs"><p>+(86) 769 2728 1879</p></div>
+						<div class="icon-adrs"><i class="fas fa-envelope"></i></div>
+						<div class="desc-adrs"><p><a href="mailto:swi@swi-cn.com">swi@swi-cn.com</a></p></div>
+						<div class="icon-adrs"><i class="fab fa-skype"></i></div>
+						<div class="desc-adrs"><p>vivienne_yang</p></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footer-box">
+						<h3>Sitemap</h3>
+						<ul>
+							<li><a href="#"><i class="fas fa-angle-right"></i>About us</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Products</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Blog</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Career</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Terms and Conditions</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Privacy Statement</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footer-box">
+						<h3>Links</h3>
+						<ul>
+							<li><a href="#"><i class="fas fa-angle-right"></i>displaybonding.com</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>oled-lcm.com</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>waterproof-tv.com</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Direct & Optical Bonding</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>128×64 OLED Display</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Custom LCD Manufacturer</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Buy Colour LCD Display Module</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>OLED Manufacturers</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="footer-box">
+						<h3>Join Us</h3>
+						<ul>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Sales & Marketing Representative</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Electrical Designer</a></li>
+							<li><a href="#"><i class="fas fa-angle-right"></i>Mechanical Engineer</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<div class="shop-trademark">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-7"><h3>Shop</h3></div>
+					<div class="col-md-5"><h3>Trademark</h3></div>
+				</div>
+				<div class="row" style="background: grey;padding: 5px 0;border-radius: 10px;">
+					<div class="col-md-7">
+						<div class="shop-trademark-left">							
+							<a href="#"><img src="../../../assets/images/alibaba.png" alt="" title="" /></a>
+							<a href="#"><img src="../../../assets/images/amazon.png" alt="" title="" /></a>
+							<a href="#"><img src="../../../assets/images/shopify.png" alt="" title="" /></a>
+							<a href="#"><img src="../../../assets/images/ali-express.png" alt="" title="" /></a>
+						</div>
+					</div>
+					<div class="col-md-5">
+						<div class="shop-trademark-right">							
+							<a href="#"><img src="../../../assets/images/elesong.png" alt="" title="" /></a>
+							<a href="#"><img src="../../../assets/images/souluca.png" alt="" title="" /></a>
+							<a href="#"><img src="../../../assets/images/souria.png" alt="" title="" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				<div class="brdtop"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<p>Copyright 2006-2019 Shineworld Innovations. All Rights Reserved</p>
+					</div>
+					<div class="col-md-6">
+						<div class="footer-copyright-right">
+							<ul>
+								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+								<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

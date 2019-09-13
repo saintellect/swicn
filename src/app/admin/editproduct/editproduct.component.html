@@ -1,0 +1,104 @@
+
+<div class="row" >
+  <div class="col-md-8 offset-4" *ngIf="isLoading">
+      <app-spinner></app-spinner>
+  </div>
+  <div class="col-md-8 offset-md-2 mt-3" *ngIf="!isLoading" >
+    <div class="tile">
+        <h3 class="tile-title">Edit Product</h3>
+      <div class="row">
+        <div class="col-lg-12">
+          <form novalidate autocomplete="off" #f="ngForm">
+            <div class="form-group">
+              <label for="heading">Product Title</label>
+              <input class="form-control" id="heading" type="text" name="productname" #productname="ngModel" [(ngModel)]="productTitle" placeholder="Enter Product Title" required><small class="form-text text-muted" id="emailHelp">The title of the product</small>
+            </div>
+            <div class="alert alert-danger" *ngIf="productname.touched && productname.invalid">
+              <p *ngIf="productname.errors.required">
+                Product title cannot be blank.
+              </p>
+            </div>
+         <div class="form-group">
+           <label for="cat">Select Product Category</label>
+           <select class="form-control" id="cat"  name="category" #category="ngModel" [(ngModel)] ="productCat"  required>
+            <option hidden [ngValue]="undefined"  selected >Select Category</option> 
+            <option *ngFor = "let cat of cats" [value]="cat.categoryname">{{cat.categoryname | titlecase}}</option>
+           </select>
+         </div>
+         <div class="alert alert-danger" *ngIf="category.touched && category.invalid">
+           <p *ngIf="category.errors.required">
+             Category cannot be blanked
+           </p>
+         </div>
+            <div class="form-group">
+              <label for="posting">Avilable Size</label>
+              <input class="form-control"  name="size" #size="ngModel" [(ngModel)]="productSize" id="posting" type="text"  placeholder="Size Avilable"><small class="form-text text-muted" id="emailHelp">Avilable size for products separate using comma ','</small>
+            </div>
+            <div class="form-group">
+                <label for="posting1">Avilable Colors</label>
+                <input class="form-control"  name="colors" #colors="ngModel" [(ngModel)]="productColors" id="posting1" type="text"  placeholder="Color Avilable"><small class="form-text text-muted" id="emailHelp">Avilable colors for product separate using comma ','</small>
+              </div>
+              <div class="form-group">
+                <label id="desc">Short Description</label>
+                <textarea class="form-control" required name="shortdescription" #shortdescription="ngModel" [(ngModel)]="prodShort" id="desc"placeholder="Short description" ></textarea><small class="form-text text-muted" id="emailHelp">Short Description of the product</small>
+              </div>
+              <div class="form-group">
+                <label for="posting2">Aamazon Buy Link</label>
+                <input class="form-control"  name="amazonLink" #amazonLink="ngModel" [(ngModel)]="buyamazon" id="posting2" type="text"  placeholder="Amazon Buy Link"><small class="form-text text-muted" id="emailHelp">Amazon buy link goes here</small>
+              </div>
+              <div class="form-group">
+                <label for="posting3">Alibaba Buy Link</label>
+                <input class="form-control"  name="alibabaLink" #alibabaLink="ngModel" [(ngModel)]="buyalibaba" id="posting3" type="text"  placeholder="Alibaba Link"><small class="form-text text-muted" id="emailHelp">Alibaba buy link goes here</small>
+              </div>
+              <div class="form-group">
+                <label for="posting4">Ali Express Buy Link</label>
+                <input class="form-control"  name="aliexpressLink" #aliexpressLink="ngModel" [(ngModel)]="buyaliexpress" id="posting4" type="text"  placeholder="Aliexpress Link"><small class="form-text text-muted" id="emailHelp">Aliexpress buy link goes here</small>
+              </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Upload Images </label>
+              <button class="form-control btn btn-lg btn-primary" #btn (click)="selectfile.click()">Select File</button>
+              <input class="form-control-file" style="visibility: hidden;" accept="image/png, image/jpeg, image/gif, image/svg, image/jpg"  (change)="selectImage($event)" #selectfile multiple   id="exampleInputFile" type="file" name="image" #image="ngModel" ngModel aria-describedby="fileHelp" ><small class="form-text text-muted" id="fileHelp">The Image will be displayed for your product</small>
+            </div>
+         
+            <div class="card mb-3 border-danger" *ngIf="urls.length !== 0 && urls">
+              <div class="card-body">
+                <blockquote class="card-blockquote">
+                  <p>You have selected this image.</p>
+                  <img *ngFor="let url of urls" [src]="url" class="img-thumbnail mb-2 ml-2 mt-2 mr-2" style="width:170px; height:130px;">
+                </blockquote>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Video Link</label>
+              <input type="text" class="form-control" name="videopath"  #videopath="ngModel" [(ngModel)]="prodvideo" placeholder="Video Link"><small class="form-text text-muted" id="emailHelp">Please add the embeded video link form youtube</small>
+            </div>
+           <div class="form-group">
+             <label for="contents" >Product Details</label>
+             <ckeditor 
+             name="productdetails" #productdetails="ngModel" [(ngModel)] ="productContents" class="form-control" required
+  [config]="{uiColor: '#7dcec6'}" minlength="50" >
+  </ckeditor>
+       
+           </div>
+           <div class="alert alert-danger" *ngIf="productdetails.touched && productdetails.invalid">
+             <p *ngIf="productdetails.errors.required">Product details cannot be blank</p>
+             <p *ngIf="productdetails.errors.minlength">Product details should contain 50 characters atleast.</p>
+           </div>
+
+           <div class="form-group">
+             <label>Is this a featured one?</label><br><br>
+             <button [class]="className" (click)= "toogle()">{{buttonName}}</button>
+
+             <small class="form-text text-muted" id="emailHelp">{{smallText}}</small>
+           </div>
+          </form>
+        </div>
+   
+      </div>
+      <div class="tile-footer">
+        <button class="btn btn-primary" type="submit" (click)="editProduct()" [disabled]="f.invalid">Update</button>
+
+      </div>
+    </div>
+  </div>
+</div>

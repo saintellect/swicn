@@ -1,0 +1,38 @@
+<div class="row">
+ 
+
+
+  <div class="col-md-10 offset-md-1">
+    <div class="tile">
+      <h3 class="tile-title">Contact Queries</h3>
+      <mat-paginator [length]="totalProduct"  *ngIf="totalProduct > 0" [pageSize]="prodcutPerPage" [pageSizeOptions]="pageOptions" (page)="changePage($event)"></mat-paginator>
+      <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            
+            <th>Name</th>
+           <th>Contact No</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let cat of queries">
+          <tr>
+            
+            <td>{{cat.name}}</td>
+            <td>{{cat.contactno}}</td>
+            <td>{{cat.email}}</td>
+            <td>{{cat.message}}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="delete(cat._id)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+     
+     
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

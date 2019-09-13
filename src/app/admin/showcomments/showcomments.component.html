@@ -1,0 +1,57 @@
+<div class="row">
+ 
+
+
+  <div class="col-md-12">
+    <div class="tile">
+      <h3 class="tile-title">Comments</h3>
+     <h2><b>Blog Name:</b> <span>{{blogName}}</span></h2>
+      <table class="table table-hover table-responsive">
+        <thead>
+          <tr>
+            
+            <th>Name</th> 
+            <th>Email</th>
+            <th>Contact No</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Show/Hide</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let cmnt of comments ">
+          <tr>
+            
+          <td *ngIf="cmnt.blogid == blogId">{{cmnt.name}}</td>
+          <td *ngIf="cmnt.blogid == blogId">{{cmnt.email}}</td>
+          <td *ngIf="cmnt.blogid == blogId">{{cmnt.contactno}}</td>
+          <td *ngIf="cmnt.blogid == blogId"> 
+
+              <div class="tile">
+                  <div class="tile-body" >{{cmnt.message}}</div>
+            
+                </div>
+          </td>
+          <td *ngIf="cmnt.blogid == blogId">{{cmnt.date | date:'short'}}</td>
+          <td *ngIf="cmnt.blogid == blogId"> 
+            <button class="btn btn-md btn-success "  (click)="show(cmnt)"  *ngIf="!cmnt.status">
+              Show
+           </button>
+           <button class="btn btn-md btn-danger "  (click)="hide(cmnt)" *ngIf="cmnt.status">
+             Hide
+           </button>
+
+              <small class="form-text text-muted" id="emailHelp">{{smallText}}</small>  
+          </td >
+            <td *ngIf="cmnt.blogid == blogId">
+              <button class="btn btn-sm btn-danger" (click)="delete(cmnt._id)"><i class="fa fa-trash"></i></button>
+            </td>
+          </tr>
+     
+     
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>

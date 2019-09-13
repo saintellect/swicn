@@ -1,0 +1,106 @@
+<div class="main-inner single-product">
+	<div class="container">
+		<div class="row">
+				<!-- <div class="preview col-md-6">
+						
+						<div class="preview-pic tab-content" >
+						  <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						</ul>
+						
+					</div> -->
+				<div class="preview col-md-6" >
+						
+						<div class="preview-pic tab-content" >
+						  <div class="tab-pane" [class.active]="selectedIndex === i"  *ngFor="let image of images ; let i = index; let isFirst = first;"   id="pic-{{i+1}}"><img [src]="image" /></div>
+						  
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs" >
+						  <li *ngFor="let image of images ; let i = index; let isFirst = first;"  [class.active]="isFirst"><a data-target="#pic-{{i+1}}" data-toggle="tab" (click)="getId(i)"><img [src]="image" [class.active]="isFirst"></a></li>
+
+						</ul>
+						
+					</div>
+
+			<div class="col-md-6">
+				<div class="single-product-right">
+					<div class="prd-name">
+						<h2>{{name | titlecase}}</h2>
+						<p><b>Category:</b>{{category | titlecase}}</p>
+					</div>
+					<div class="single-product-short-info">
+						<p>{{shortdesc | titlecase}}</p>
+					</div>
+					<div class="prd-info">
+						<h5>Available Options</h5>
+						<div class="row mt-20"  *ngIf="sizes != 'null'">
+							<div class="col-md-2">
+								<ul class="prd-info-left">
+									<li>Sizes:</li>
+								</ul>
+							</div>
+							<div class="col-md-10">
+								<ul class="prd-info-right">
+									<li>{{sizes}}</li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="row mt-20" *ngIf="colors != 'null'">
+							<div class="col-md-2">
+								<ul class="prd-info-left" >
+									<li>Colors:</li>
+								</ul>
+							</div>
+							<div class="col-md-10">
+								<ul class="prd-info-right">
+									<li>{{colors}}</li>
+									
+								</ul>
+							</div>
+						</div>
+						<div class="row mt-20">
+							<div class="col-md-2">
+								<ul class="prd-info-left">
+									<li>Share:</li>
+								</ul>
+							</div>
+							<div class="col-md-10">
+								<ul class="prd-info-right s-share">
+									<li><a ceiboShare [facebook]="{u: repoUrl}"><i class="fab fa-facebook-f"></i></a></li>
+									<li><a ceiboShare  [twitter]="{url:repoUrl, text:'Checkout our new product', hashtags:'swicn, product '}" ><i class="fab fa-twitter"></i></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="btn-buynow">
+							<h5>Buy Now</h5>
+							<ul>
+								<li *ngIf="alibaba != 'null'"><a href="{{alibaba}}"><img src="../../../assets/images/alibaba.png" alt="" title=""></a></li>
+								<li *ngIf="amazon != 'null'"><a href="{{amazon}}"><img src="../../../assets/images/amazon.png" alt="" title=""></a></li>
+								<li *ngIf="aliexress != 'null'"><a href="{{aliexress}}"><img src="../../../assets/images/ali-express.png" alt="" title=""></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="single-product-desc">
+		<div class="container">
+			<h3>Description</h3>
+			<div class="single-product-desc-inner">
+				<p [innerHtml]="details"></p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<div class="row">
+ 
+
+
+    <div class="col-md-10 offset-md-1 ">
+      <div class="tile">
+        <h3 class="tile-title">Applied Candidates</h3>
+        <mat-paginator [length]="totalCandidates"  *ngIf="totalCandidates > 0" [pageSize]="prodcutPerPage" [pageSizeOptions]="pageOptions" (page)="changePage($event)"></mat-paginator>
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              
+              <th>Name</th>
+              <th>Applied For</th>
+              <th>Email Id</th>
+              <th>Mobile Number</th>
+              <th>Applied On</th>
+              <th>Resume</th>
+              
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let can of candidates">
+            <tr>
+              
+              <td>{{can.name | titlecase}}</td>
+              <td>
+                {{can.intrest | titlecase}}</td>
+              <td>{{can.email}}</td>
+              <td>{{can.phoneno}}</td>
+              <td>{{can.date | date:'short' }}</td>
+              <td><a [href]="can.resumePath">Download</a></td>
+            
+              <td>
+                <button class="btn btn-sm btn-danger" (click)="delete(can._id)"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+       
+       
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>

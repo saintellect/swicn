@@ -1,0 +1,107 @@
+<div class="breadcum">
+  <div class="header-img">
+    <img src="../../../assets/images/career-header.jpg" class="img-fluid" alt="" title="" />
+  </div>
+
+</div>
+
+<div class="main-inner">
+<div class="contact-inner">
+  <div class="adress-contact">
+    <div class="container" >
+      <div class="row">
+        <div class="col-md-12">
+          <div class="adress-contact-right">
+            <h1 class="section-title-inner">Contact Us</h1>	
+            <form #f="ngForm" (ngSubmit)="addConatct()" novalidate  autocomplete="off" *ngIf="!sucess">
+            <div class="row">
+                <div class="col-md-4">
+                <div class="form-group">
+                <input type="text" required name="name" #name="ngModel" [(ngModel)]="cname"  placeholder="Name*" class="form-control" />
+              </div>
+              <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                <p *ngIf="name.errors.required"> Name cannot be blank.</p>
+              </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                <input type="number" name="contactno" #contactno="ngModel" [(ngModel)]="ccontact" required placeholder="Phone No*" class="form-control" />
+              </div>
+              <div class="alert alert-danger" *ngIf="contactno.touched && contactno.invalid">
+                <p *ngIf="contactno.errors.required"> Conatct no cannot be blank.</p>
+              </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                <input type="email" name="email" #email="ngModel" [(ngModel)]="cemail" placeholder="Email*" required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" class="form-control"  />
+              </div>
+              <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <p *ngIf="email.errors.required"> Email cannot be blank.</p>
+                <p *ngIf="email.errors.pattern">Email is not valid.</p>
+              </div>
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-md-12">
+                <div class="form-group">
+                  <textarea class="form-control" placeholder="Messege" name="message" #message="ngModel" [(ngModel)]="cmessage" required></textarea>
+                  <div class="alert alert-danger" *ngIf="message.touched && message.invalid">
+                    <p *ngIf="message.errors.required"> Email cannot be blank.</p>
+ 
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="send-form">
+                <div class="col-md-12">
+                <div class="form-group">
+                <input type="submit" name="" value="SEND" [disabled]="f.invalid" class="form-control btn btn-submit" />
+              </div>
+              </div>
+              </div>
+              </div>
+            </form>		
+            
+            <div class="alert alert-success" *ngIf="sucess">
+                Thanx for your time, We will get back to you soon.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12"><div class="sec-sep"></div></div>	
+        <div class="col-md-12">
+          <div class="adress-contact-left">
+            <h2 class="section-title-inner">Our Presence</h2>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="adress-contact-left-box">
+              <h4>China Sales Center</h4>								
+              <p><i class="far fa-envelope"></i>swi@swi-cn.com / vivian.y@swi-cn.com</p>
+              <p><i class="fas fa-phone-volume"></i>+86.769.8706.9519</p>
+              <p><i class="fas fa-map-marked-alt"></i>#709, Unit A, Yi Cheng Commercial Building, Hongli Road, Dongcheng District, Dongguan City, 523000, Guangdong Province, China</p>
+            </div>
+              </div>
+              <div class="col-md-3">
+                <div class="adress-contact-left-box adress-contact-left-box-center">
+                  <h4>Dongguan Plant</h4>
+                  <p><i class="fas fa-map-marked-alt"></i>Yuanying Road, Zhuyuan, Xialingbei Industrial Zone, Liaobu, Dongguan City, Guangdong Province, China</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="adress-contact-left-box">
+                  <h4>US Partner and Sales Center</h4>
+                  <p>Computer Express LLC</p>
+                  <p><i class="far fa-envelope"></i>sales@computerexpressct.com</p>
+                  <p><i class="fas fa-phone-volume"></i>+1.860-829-1310</p>
+                  <p><i class="fas fa-map-marked-alt"></i>201 Christian Lane, Berlin, CT 06037, United States</p>
+                </div>
+              </div>
+            </div>							
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

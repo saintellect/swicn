@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2" >
+    <div class="tile">
+        <h3 class="tile-title">Add Member</h3>
+      <div class="row">
+        <div class="col-lg-12">
+          <form novalidate autocomplete="off" #f="ngForm">
+            <div class="form-group">
+              <label for="heading">Member Name</label>
+              <input class="form-control" id="heading" type="text" name="name" #name="ngModel" [(ngModel)]="memberName" placeholder="Enter Name" required><small class="form-text text-muted" id="emailHelp">Member Name</small>
+            </div>
+            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+              <p *ngIf="name.errors.required">
+                Member name cannot be blank.
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="Posted">Member Designation</label>
+              <input class="form-control"  name="designation"  #designation="ngModel" [(ngModel)] ="memberDesignation" id="Posted" type="text"  required placeholder="Designation"><small class="form-text text-muted" id="emailHelp">Designation of team member.</small>
+            </div>
+            <div class="alert alert-danger" *ngIf="designation.touched && designation.invalid">
+              <p *ngIf="designation.errors.required">Member designation cannot be blank.</p>
+            </div>
+            <div class="form-group">
+              <label for="Posted1">Message</label>
+              <input class="form-control"  name="message"  #message="ngModel" [(ngModel)] ="memberMessage" id="Posted1" type="text"  required placeholder="Message"><small class="form-text text-muted" id="emailHelp">A message from team member.</small>
+            </div>
+            <div class="alert alert-danger" *ngIf="message.touched && message.invalid">
+              <p *ngIf="message.errors.required">Member Message cannot be blank.</p>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Upload Member Image </label>
+              <button class="form-control btn btn-lg btn-primary" #btn (click)="selectfile.click()">Select File</button>
+              <input class="form-control-file" style="visibility: hidden;"  accept="image/png, image/jpeg, image/gif, image/svg, image/jpg"  (change)="selectImage($event)" #selectfile id="exampleInputFile" type="file" name="image" #image="ngModel" ngModel aria-describedby="fileHelp"><small class="form-text text-muted" id="fileHelp">The Image will be displayed on banner</small>
+            </div>
+            <div class="alert alert-primary" *ngIf="image.invalid">
+              <p *ngIf="image.errors.required">Selecting member image is mandatory.</p>
+            </div>
+            <div class="card mb-3 border-danger" *ngIf="!teamImage !== '' && teamImage">
+              <div class="card-body">
+                <blockquote class="card-blockquote">
+                  <p>You have selected this image.</p>
+                  <img [src]="teamImage" style="width: 100%">
+                </blockquote>
+              </div>
+            </div>
+            <div class="card mb-3 border-danger" *ngIf="!teamImage">
+              <div class="card-body">
+                <blockquote class="card-blockquote">
+                  <p>You have selected this image.</p>
+                  <img [src]="imageurl" style="width: 100%">
+                </blockquote>
+              </div>
+            </div>
+     
+      
+          </form>
+        </div>
+   
+      </div>
+      <div class="tile-footer">
+        <button class="btn btn-primary" type="submit" (click)="Updateteam()" [disabled]="f.invalid">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

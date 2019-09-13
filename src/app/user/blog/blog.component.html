@@ -1,0 +1,39 @@
+
+	<div class="breadcum">
+		<div class="header-img">
+			<img src="../../../assets/images/blog-header.jpg" class="img-fluid" alt="" title="" />
+		</div>
+		<div class="page-title">
+			<div class="container"><h1>Blogs</h1></div>
+		</div>
+	</div>
+
+<loader *ngIf="status"></loader>
+<div class="main-inner" *ngIf="!status">
+	<div class="blog-inner">
+		<div class="container">
+			<div *ngFor="let blog of holder">
+			<div class="row">
+				<div class="col-md-3">
+					<a (click)="goto(blog._id)" style="cursor: pointer"  >
+						<img [src]="blog.imagePath" alt="" title="" style="width:100%!important;" class="img-fluid" />
+					</a>
+				</div>
+				<div class="col-md-9">
+					<a (click)="goto(blog._id)" style="cursor: pointer" class="blog-title">{{blog.blogname}}</a>
+					<div class="link-blog">
+						<p><b>Posted By:</b> {{blog.postedby}}</p>
+						<p><b>Date:</b> {{blog.postingdate}}</p>
+				</div>
+					<p [innerHtml]="blog.blogdetails.substr(0,150) + ' .......'"></p>
+					<div class="link-blog">
+						<a (click)="goto(blog._id)"  style="cursor: pointer" >Read More</a> </div>
+				</div>
+			</div>
+			<div class="row"></div><div class="col-md-12"><div class="sec-sep"></div></div></div>
+	
+			
+			</div>
+		</div>
+	</div>
+

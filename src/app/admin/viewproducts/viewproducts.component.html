@@ -1,0 +1,71 @@
+<div class="row">
+ 
+
+
+    <div class="col-md-12 ">
+      <div class="tile">
+        <h3 class="tile-title">Products</h3>
+        <mat-paginator [length]="totalProduct"  *ngIf="totalProduct > 0" [pageSize]="prodcutPerPage" [pageSizeOptions]="pageOptions" (page)="changePage($event)"></mat-paginator>
+        <table class="table table-hover table-responsive">
+          <thead>
+            <tr>
+              
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Avilable Size</th>
+              <th>Avilable Colors</th>
+              <th>Short Description</th>
+              <th>Buy Links</th>
+              <th>Images</th>
+              <th>Is Featured</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let product of products">
+            <tr>
+             
+              <td>{{product.productname}}</td>
+              <td>{{product.category}}</td>
+              <td>{{product.size}} </td>
+              <td>{{product.colors}} </td>
+              <td>
+                <div class="tile">
+                  <div class="tile-body"  [innerHTML]="product.shortdescription"></div>
+            
+                </div>
+              </td>
+              <td><small *ngIf="product.amazonLink != 'null'"> <a class="btn btn-sm btn-dark" href="{{product.amazonLink}}">Amazon</a></small><br><br>
+                <small *ngIf="product.alibabaLink != 'null'">  <a class="btn btn-sm btn-dark" href="{{product.alibabaLink}}">Alibaba</a> </small><br><br>
+                <small *ngIf="product.aliexpressLink != 'null'">   <a class="btn btn-sm btn-dark" href="{{product.aliexpressLink}}">Aliexpress
+                  
+                </a> </small><br><br>
+            </td>
+              <td>
+               <p > You have selected <b>{{product.imagePath.length}}</b> images for the product.</p> 
+              <!-- <img  *ngFor="let image of product['imagePath']" [src]="image" class="img-responsive mb-2" style="width: 90px; height:80px;">  -->
+               
+            </td>
+           
+              <td>
+              
+              </td>
+              <td >{{product.Isfeatured == true ? "Yes" : "No"}}</td>
+             
+              <td>
+                <button class="btn btn-sm btn-primary" (click)="edit(product._id)"><i class="fa fa-edit"></i></button>
+              
+              </td>
+              <td>
+                <button class="btn btn-sm btn-danger" (click)="delete(product._id)"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+       
+       
+          </tbody>
+        </table>
+       
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>

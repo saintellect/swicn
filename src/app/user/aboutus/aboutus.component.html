@@ -1,0 +1,63 @@
+<div class="breadcum">
+  <div class="header-img">
+    <img src="../../../assets/images/about-swi.jpg" class="img-fluid" alt="" title="" />
+  </div>
+  <div class="page-title">
+    <div class="container"><h1>About SWI</h1></div>
+  </div>
+</div>
+
+<div class="main-inner">
+<div class="page-content about-inner">
+  <div class="company-history">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="../../../assets/images/company-history.jpg" class="img-fluid" alt="" title="" />
+        </div>
+        <div class="col-md-6 mt-4" *ngFor="let about of aboutUs">
+          <div >
+          <h3 class="section-title-inner">{{about.title}}</h3>
+          <p [innerHtml]="about.content"></p>
+          </div>
+        </div>
+      </div>				
+    </div>
+  </div>
+  <div class="container"><div class="sec-sep"></div></div>
+  <div class="mission-vission">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="mission-vission-box">
+            <div class="icon-small-box"><img src="../../../assets/images/goals.png" alt="" title="" /></div>
+            <h5>Goals</h5>
+            <p>Donec congue nec felis ut pretium. Fusce egestas rhoncus imperdiet. Praesent porttitor lobortis rhoncus. Morbi mi lectus, tristique vel enim vel, volutpat luctus ex.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="mission-vission-box">
+            <div class="icon-small-box"><img src="../../../assets/images/objective.png" alt="" title="" /></div>
+            <h5>Objectives</h5>
+            <p>Donec congue nec felis ut pretium. Fusce egestas rhoncus imperdiet. Praesent porttitor lobortis rhoncus. Morbi mi lectus, tristique vel enim vel, volutpat luctus ex.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="mission-vission-box">
+            <div class="icon-small-box"><img src="../../../assets/images/mission.png" alt="" title="" /></div>
+            <h5>Mission</h5>
+            <p>Donec congue nec felis ut pretium. Fusce egestas rhoncus imperdiet. Praesent porttitor lobortis rhoncus. Morbi mi lectus, tristique vel enim vel, volutpat luctus ex.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="mission-vission-box">
+            <div class="icon-small-box"><img src="../../../assets/images/vision.png" alt="" title="" /></div>
+            <h5>Vision </h5>
+            <p>Donec congue nec felis ut pretium. Fusce egestas rhoncus imperdiet. Praesent porttitor lobortis rhoncus. Morbi mi lectus, tristique vel enim vel, volutpat luctus ex.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

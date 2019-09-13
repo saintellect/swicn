@@ -1,0 +1,80 @@
+<body class="app sidebar-mini rtl">
+  <!-- Navbar-->
+   <header class="app-header"><a class="app-header__logo" routerLink="/admin/dashboard">SWICN</a>
+     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+     <!-- Navbar Right Menu-->
+     <ul class="app-nav">
+ 
+       <!--Notification Menu-->
+  
+       <!-- User Menu-->
+       <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
+         <ul class="dropdown-menu settings-menu dropdown-menu-right">
+           <li><a class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out fa-lg" ></i> Logout</a></li>
+         </ul>
+       </li>
+     </ul>
+   </header>
+   <!-- Sidebar menu-->
+   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+   <aside class="app-sidebar">
+
+     <ul class="app-menu">
+       <li><a class="app-menu__item active" routerLink="/admin/dashboard" routerLinkActive="active"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Dashboard</span></a></li>
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-user"></i><span class="app-menu__label">About Us</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <ul class="treeview-menu">
+           <li><a class="treeview-item" routerLink="/admin/add-aboutus-content"> Add Content</a></li>
+           <li><a class="treeview-item" routerLink="/admin/view-aboutus-contents">View Content</a></li>
+         </ul>
+       </li>
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-rss"></i><span class="app-menu__label">Blogs</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" routerLink="/admin/add-blog"> Add Blogs</a></li>
+          <li><a class="treeview-item" routerLink="/admin/view-blogs">View Blogs</a></li>
+        </ul>
+      </li>
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-graduation-cap"></i><span class="app-menu__label">Manage Career</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <ul class="treeview-menu">
+           <li><a class="treeview-item" routerLink="/admin/addjob"> Add A Job</a></li>
+           <li><a class="treeview-item" routerLink="/admin/viewjobs"> View Jobs</a></li>
+           <li><a class="treeview-item" routerLink="/admin/appliedcandidates">View Applied Candidates</a></li>
+         </ul>
+       </li>
+ 
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-product-hunt"></i><span class="app-menu__label">Product Categories</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <ul class="treeview-menu">
+           <li><a class="treeview-item" routerLink="/admin/add-product-category">Add Categories</a></li>
+           <li><a class="treeview-item" routerLink="/admin/view-product-categories">View Categories</a></li>
+         </ul>
+       </li>
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-product-hunt"></i><span class="app-menu__label">Product Management</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" routerLink="/admin/add-product">Add Product</a></li>
+          <li><a class="treeview-item" routerLink="/admin/view-products">View Products</a></li>
+        </ul>
+      </li>
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-picture-o"></i><span class="app-menu__label">Banner</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <ul class="treeview-menu">
+           <li><a class="treeview-item" routerLink="/admin/add-banner">Add Banner slider</a></li>
+           <li><a class="treeview-item" routerLink="/admin/view-banners">View Banner slider</a></li>
+         </ul>
+       </li>
+
+       <li class="treeview"><a class="app-menu__item"  data-toggle="treeview"><i class="app-menu__icon fa fa-sliders"></i><span class="app-menu__label">Manage Team</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <ul class="treeview-menu">
+           <li><a class="treeview-item" routerLink="/admin/add-member">Add Team Member</a></li>
+           <li><a class="treeview-item" routerLink="/admin/view-members">View Members</a></li>
+         </ul>
+       </li>
+    
+       <!-- <li><a class="app-menu__item" routerLink="/admin/manage-subscribers"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Manage Subscribers</span></a></li> -->
+       <li><a class="app-menu__item" routerLink="/admin/contact-queries"><i class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Contact Queries</span></a></li>
+
+     </ul>
+   </aside>
+
+   <!-- main -->
+   <main class="app-content">
+   <router-outlet></router-outlet>
+   </main>
+   </body>

@@ -1,0 +1,247 @@
+<div class="home">
+	<div class="slider-home">
+		<section>
+    <div id="slider-animation" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <!-- <ul class="carousel-indicators" >
+	<li data-target="#slider-animation" data-slide-to="1"  class="active"></li>
+	<li data-target="#slider-animation" data-slide-to="2" ></li>
+	<li data-target="#slider-animation" data-slide-to="3"  ></li>
+  </ul> -->
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item"  *ngFor="let ban of banners ; let i = index ; let isFirst = first" [class.active]="isFirst">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-5">
+    				<div class="banner-img">
+    					<img [src]="ban.imagePath" alt="banner {{i+1}}" title="" style="width:370px; height:370px;" class="img-fluid"/>
+    				</div>
+    			</div>
+    			<div class="col-md-7">
+    				<div class="banner-text">
+    					<p [innerHtml]="ban.bannertext"></p>
+						<a [href]="ban.calltoaction">More Details</a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+     
+    </div>
+  
+
+    </div>
+    
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#slider-animation" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#slider-animation" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+
+
+
+</section>
+</div>
+
+<div class="section-product ">
+		<h2 class="section-title">Featured Product</h2>
+		<div class="slider-home-product">
+			<div id="slider-animation-prd" class="carousel slide" data-ride="carousel" >
+				<div class="carousel-inner">
+					<div class="carousel-item" [class.active]="isFirst" *ngFor="let product of featuredProducts ; let i = index ; let isFirst =  first ">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-3" *ngFor="let product of featuredProducts">
+										<div class="product-box">
+											<div class="product-desc">
+												<img [src]="product.imagePath[0]" alt="" title="" />
+												<h3>{{product.productname | titlecase}}</h3>
+												<p *ngIf="product.size != 'null'">Sizes : {{product.size}}</p>
+												<p *ngIf="product.colors != 'null'">Colors : {{product.colors}}</p>
+												<p>{{product.category | titlecase}}</p>
+												<p>{{product.shortdescription | titlecase}}</p>
+											</div>
+											<div class="link-prd"><a (click)="gotopro(product)">View More</a> </div>
+										</div>
+								</div>
+						
+						
+							</div>
+						</div>
+					</div>
+			</div>
+			<!-- Left and right controls -->
+	  <a class="carousel-control-prev" href="#slider-animation-prd" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" href="#slider-animation-prd" data-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	  </a>
+	</div>
+	</div>
+
+<div class="section-testimonial mt-2">
+	<h2 class="section-title">Testimonials</h2>
+		<section>
+    <div id="slider-animation1" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#slider-animation1" data-slide-to="0" class="active"></li>
+    <li data-target="#slider-animation1" data-slide-to="1"></li>
+    <li data-target="#slider-animation1" data-slide-to="2"></li>
+  </ul>
+
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="testimonial-box">
+					<div class="test-desc">
+						<p>Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much!  ..</p>
+					</div>
+					<div class="client-img">
+						<div class="row">
+							<div class="col-md-3"><span class="test-img"><img src="../../../assets/images/client.png" alt="" title="" /></span></div>
+							<div class="col-md-9"><h4>Nathanael Jaworski</h4></div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="testimonial-box">
+					<div class="test-desc">
+						<p>Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much!  ..</p>
+					</div>
+					<div class="client-img">
+						<div class="row">
+							<div class="col-md-3"><span class="test-img"><img src="../../../assets/images/client.png" alt="" title="" /></span></div>
+							<div class="col-md-9"><h4>Nathanael Jaworski</h4></div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    </div>
+    <div class="carousel-item">
+    	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="testimonial-box">
+					<div class="test-desc">
+						<p>Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much!  ..</p>
+					</div>
+					<div class="client-img">
+						<div class="row">
+							<div class="col-md-3"><span class="test-img"><img src="../../../assets/images/client.png" alt="" title="" /></span></div>
+							<div class="col-md-9"><h4>Nathanael Jaworski</h4></div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="testimonial-box">
+					<div class="test-desc">
+						<p>Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much!  ..</p>
+					</div>
+					<div class="client-img">
+						<div class="row">
+							<div class="col-md-3"><span class="test-img"><img src="../../../assets/images/client.png" alt="" title="" /></span></div>
+							<div class="col-md-9"><h4>Nathanael Jaworski</h4></div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    </div>
+    <div class="carousel-item">
+    	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="testimonial-box">
+					<div class="test-desc">
+						<p>Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much!  ..</p>
+					</div>
+					<div class="client-img">
+						<div class="row">
+							<div class="col-md-3"><span class="test-img"><img src="../../../assets/images/client.png" alt="" title="" /></span></div>
+							<div class="col-md-9"><h4>Nathanael Jaworski</h4></div>
+						</div>	
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="testimonial-box">
+					<div class="test-desc">
+						<p>Perfect Themes and the best of all that you have many options to choose! Best Support team ever!Very fast responding and experts on their fields! Thank you very much!  ..</p>
+					</div>
+					<div class="client-img">
+						<div class="row">
+							<div class="col-md-3"><span class="test-img"><img src="../../../assets/images/client.png" alt="" title="" /></span></div>
+							<div class="col-md-9"><h4>Nathanael Jaworski</h4></div>
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    </div>
+	</div>
+</div>
+</section>	
+</div>
+	
+<div class="section-blog">
+	<h3 class="section-title">Recent Blogs</h3>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3" *ngFor="let blog of recentBlogs ;  let i = index">
+				<div class="section-blog-box">
+					<div class="blog-img"><img [src]="blog.imagePath" style="height: 220px;" class="img-fluid" alt="blogimage {{i+1}}" title="" /> </div>
+					<div class="blog-desc">
+						<h5 (click)="goto(blog)" style="cursor: pointer"  [innerHtml]="blog.blogdetails.substr(0,40) + '....'"></h5>
+						<p>{{blog.postingdate | date:'medium'}}</p>
+					</div>	
+				</div>
+			</div>
+		
+		</div>
+	</div>
+	<div class="view-more"><a routerLink="/blogs">View all Updates</a></div>
+</div>
+
+<div class="meet-team">
+	<h4 class="section-title">Meet Our Sales Team</h4>
+	<div class="container">
+		<div class="row" >
+
+			<div class="col-md-4" *ngFor="let team of ourTeams">
+				<div class="meet-team-box">
+					<a href="#">
+						<img [src]="team.imagePath" alt="" title="" />
+						<div class="team-member-title"><p>{{team.name | titlecase}}</p></div>
+					</a>
+				</div>
+			</div>
+			
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
